@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="color: green">
+<h1> The pixel for the current browser window is -></h1>
+
+<p id="pixel"></p>
+<script>
+
+    window.addEventListener("load", pixel_count);
+    window.addEventListener("resize", windowWasResized);
+    function windowWasResized()
+    {
+        pixel_count();
+        alert("You re-sized the window!");
+        // In Chrome, you actually get two events when the window is re-sized,
+        // so you'll see two alerts. This shouldn't affect the lab question.
+    }
+    function  pixel_count()
+    {
+        var width_para = document.getElementById("pixel");
+        var height_of_window =window.innerHeight;
+        var width_of_window = window.innerWidth;
+        var total_pixel = height_of_window * width_of_window;
+        width_para.innerHTML = '<h3 style="color: crimson">'  + height_of_window + "*" + width_of_window +  "=" + total_pixel;
+    }
+</script>
+
+</body>
+
+</html>

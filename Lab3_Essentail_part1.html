@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3 Solutions</title>
+</head>
+<body>
+<h2>Daily-Planner </h2>
+<ul id = "Daily_Planner">
+
+</ul>
+<input type="text" id="list_input"/>
+<button id = 'add_items' type = 'button'>Add your daily routine to your List</button>
+
+<script>
+
+    document.getElementById("add_items").addEventListener('click', add_items);
+    function add_items()
+    {
+            var my_list_element = document.getElementById("Daily_Planner");
+            var new_list_items = document.createElement("li");
+            new_list_items.innerHTML = document.getElementById("list_input").value;
+            my_list_element.appendChild(new_list_items);
+            document.getElementById('list_input').value = "";
+    }
+
+
+</script>
+
+
+</body>
+</html>
