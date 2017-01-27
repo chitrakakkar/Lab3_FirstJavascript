@@ -25,7 +25,7 @@
                             The franchise began in 1977 with the release of the film Star Wars (subtitled Episode IV: A New Hope in 1981[2][3]), which became a worldwide pop culture phenomenon. It was followed by the successful sequels The Empire Strikes Back (1980) and Return of the Jedi (1983); these three films constitute the original Star Wars trilogy. A prequel trilogy was released between 1999 and 2005, which received mixed reactions. A sequel trilogy began in 2015 with the release of Star Wars: The Force Awakens. All seven films were nominated for Academy Awards (with wins going to the first two films) and have been commercial successes, with a combined box office revenue of $7.471 billion,[4] making Star Wars the third highest-grossing film series.[5] Spin-off films include Star Wars: The Clone Wars (2008) and Rogue One (2016), which is the first in an upcoming series of anthology films.
                         </p>
                         <p><strong>Cast</strong>: Hayden Vader, Kylo Ren <br/>
-                            <span id="rating"><strong>Ratings</strong>: 5</span></p>
+                            <span class="rating"><strong>Ratings</strong>: 5</span></p>
 
                     </td>
                 </tr>
@@ -73,7 +73,8 @@
                             Deadpool premiered in Paris on February 8, 2016, and was released on February 12 in the United States in IMAX, DLP, D-Box, and premium large format. Critics praised Reynolds' performance as well as the film's style, faithful depiction of the titular character, and action sequences, but criticized its plot as formulaic.
                         </p>
                         <p><strong>Cast</strong>: Ryan Reynold, Morena Baccarin <br/>
-                            <strong>Ratings :</strong><span class="rating"> 4 </span></p>
+                            <strong>Ratings :</strong>
+                            <span class="rating"> 4 </span></p>
 
                     </td>
                 </tr>
@@ -128,11 +129,12 @@
     </div>
 </div>
 <script>
-        var ratings = document.getElementById("rating").innerText;
+        var ratings = document.getElementsByClassName("rating").innerText;
+
         function draw_star()
         {
             var stars = " ";
-            for (var i = 0; i < ratings; i++)
+            for (var i = 0; i < Number(ratings); i++)
             {
                 stars = stars + "<span class='glyphicon glyphicon-star-empty' style='color:green'></span>";
                 ratings[i].innerHTML = stars;
