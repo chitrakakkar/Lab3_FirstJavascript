@@ -4,37 +4,34 @@
     <meta charset="UTF-8">
     <title>JavsScript Functions with Arguments</title>
 
-    <style>
-        #randomColor {
-            height : 50px;
-            width : 80px;
-            font-size: 20px;
-        }
-    </style>
-
-
 </head>
 <body>
 
-<button id='randomColor' onclick="changeToRandomColor(this)">Click me for a random color</button>
-<button id="'colorSaver" onclick="saveToTable(this)">Save it to your list</button>
-<p>You can see that every time I press the button above, the color of the text changes. I can save the color of my choice and it's corresponding nex code in a table. I feel I am able to do that, that should be fun.</p>
+<button onclick="changeToRandomColor()">Random color</button>
+<button id="colorSaver" onclick="saveToTable(this)">Save it to your list</button>
+<p id="randomColor">Welcome To my web page !! This is called color-picker. This page has two different buttons which has two different functionality.You can see that every time I press the button above, the color of the text changes. I can save the color of my choice and it's corresponding nex code in a table. I feel I am able to do that, that should be fun.</p>
 
 <script>
-    function changeToRandomColor(element)
+    document.getElementById("randomColor").addEventListener('click', changeToRandomColor);
+    function changeToRandomColor()
     {
-        element.style.backgroundColor = randomColor();
+        document.getElementById("randomColor").style.backgroundColor = randomColor();
     }
-    function randomColor() {
+    function randomColor()
+    {
         var r = Math.floor(Math.random() * 255);   //Pick a random number between 0 and 1
         var g = Math.floor(Math.random() * 255);   //Multiply by 255 to get a number in the correct range
         var b = Math.floor(Math.random() * 255);   //Then convert it to an int
         //Colors can be created as "rgb(33, 52, 15)" where the numbers are R, G, B values.
         //This is expected as a string.
         var colorString = "rgb(" + r + ", " + g + ", " + b + ")";
-        console.log(colorString);   //Avoid for production apps, OK for developing.
-        // You can see the output from this in the developer JavaScript console.
+        console.log(colorString);
         return colorString
+    }
+    function saveToTable()
+    {
+
+
     }
 </script>
 
