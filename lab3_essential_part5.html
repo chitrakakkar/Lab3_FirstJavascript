@@ -53,9 +53,9 @@
         console.log(colorString);
         return colorString
     }
+    var hex_color = parse_color_elements(randomColor());
     function saveToTable()
     {
-        var hex_color = parse_color_elements(randomColor());
         alert("HEX COLORS " + hex_color);
         var ColorListElement= document.getElementById("color-table");
         var new_list_items = document.createElement("tr");
@@ -82,11 +82,10 @@
 
         return (hex.length == 1 ? "0" + hex : hex); // taken help from http://stackoverflow.com/questions/13070054/convert-rgb-strings-to-hex-in-javascript
     }
-    function rgbToHex(r, g, b)
+    function rgbToHex(color1, color2, color3)
     {
-        return ("#" + ConvertIntoHexColor(r) + ConvertIntoHexColor(g) + ConvertIntoHexColor(b)).replace(/\s/g, '');
+        return ("#" + ConvertIntoHexColor(color1) + ConvertIntoHexColor(color2) + ConvertIntoHexColor(color3)).replace(/\s/g, '');
     }
-
 </script>
 
 </body>
