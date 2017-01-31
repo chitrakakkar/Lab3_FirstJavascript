@@ -51,8 +51,6 @@
         Change_Font_Size();
         Change_color_for_list_elements();
         Copy_sort_Concatenate();
-
-
     }
     function Count_P()
     {
@@ -95,12 +93,22 @@
         create_new_p_element.innerText = "I am the new Paragraph :-> " + Paragraph_to_be_inserted;
         place_to_be_inserted.appendChild(create_new_p_element);
     }
+    var sixth_list_element = document.getElementsByTagName("li")[5];
+    var newImg = document.createElement("img");
+    sixth_list_element.addEventListener("mouseover", mouse_Over);
+    sixth_list_element.addEventListener("mouseout", mouse_Out);
+    function mouse_Over()
+    {
+        //var newImg = document.createElement("img");
+        newImg.src= "Images/javascript.png";
+        newImg.id= "6th_element_id";
+        sixth_list_element.appendChild(newImg)
+    }
+    function mouse_Out()
+    {
+    sixth_list_element.removeChild(document.getElementById("6th_element_id"));
 
-
-
-
-
-
+    }
 
 </script>
 </body>
