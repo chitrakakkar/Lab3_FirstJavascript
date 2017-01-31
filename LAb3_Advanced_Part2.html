@@ -65,13 +65,13 @@
     var class_elements_Large = document.getElementsByClassName("large");
         for(var x=0;x<class_elements_Large.length;x++)
         {
-            class_elements_Large[x].style.fontSize='2em';
+            class_elements_Large[x].style.fontSize='2em';  // changes font for each letter in class element
         }
         
     }
     function Change_color_for_list_elements()
     {
-        var list= document.querySelectorAll("ul i");
+        var list= document.querySelectorAll("ul i");  // querySelectorAll ->Get all elements in the document with class
         for (var x=0;x<list.length;x++)
         {
             list[x].style.color = 'red';
@@ -81,15 +81,16 @@
 
     function Copy_sort_Concatenate()
     {
-        var list_of_elements=[];
+        var list_of_elements=[]; // An empty list to contain a sentence
         var elements_to_be_sorted = document.getElementsByClassName("copyme");
-        for(var i=0;i<elements_to_be_sorted.length;i++)
+        for(var i=0;i<elements_to_be_sorted.length;i++) // class returns an array of objects.
         {
             var temp = elements_to_be_sorted[i].innerHTML;
 
-            list_of_elements.push(temp);
+            list_of_elements.push(temp);  //adding elements to the list
         }
-        var reverse_sorted_list= list_of_elements.reverse();
+        var reverse_sorted_list= list_of_elements.reverse(); // reverse sort.
+        // joining the list element first and then splitting with a space to look like a sentence.
         var Paragraph_to_be_inserted = reverse_sorted_list.join(',').replace(/,/g, ' ').split();
         var place_to_be_inserted = document.getElementById("copyhere");
         var create_new_p_element = document.createElement("p");
@@ -100,18 +101,19 @@
     function change_6th_element()
     {
         var sixth_list_element = document.getElementsByTagName("li")[5];
-        var newImg = document.createElement("img");
+        var newImg = document.createElement("img"); //creating image element like essential part1
         sixth_list_element.addEventListener("mouseover", mouse_Over);
         sixth_list_element.addEventListener("mouseout", mouse_Out);
         function mouse_Over() //inner function
         {
-            newImg.src = "Images/javascript.png";
-            newImg.id = "6th_element_id";
+            newImg.src = "Images/javascript.png";  //http://stackoverflow.com/questions/1232793/javascript-set-img-src
+            newImg.id = "6th_element_id"; // setting id to remove it later on
             sixth_list_element.appendChild(newImg)
         }
 
         function mouse_Out()  // another inner function
         {
+            //http://www.w3schools.com/jsref/met_node_removechild.asp
             sixth_list_element.removeChild(document.getElementById("6th_element_id"));
 
         }
