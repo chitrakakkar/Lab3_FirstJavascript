@@ -64,17 +64,13 @@
         new_list_items.innerHTML = hex_color + color_column;*/
         ColorListElement.appendChild(new_list_items)
     }
-
     function parse_color_elements(rgb_color)
     {
         var parse_rgb_colors= rgb_color.split("(")[1].split(")")[0];
-        var red= parse_rgb_colors.split(",")[0];
-        alert(red);
-        var green = parse_rgb_colors.split(",")[1];
-        alert(green);
-        var blue = parse_rgb_colors.split(",")[2];
-        alert(blue);
-        return rgbToHex(red, green,blue);
+        var red= parseInt(parse_rgb_colors.split(",")[0]);
+        var green = parseInt(parse_rgb_colors.split(",")[1]);
+        var blue = parseInt(parse_rgb_colors.split(",")[2]);
+        return rgbToHex(red,green, blue);
 
     }
     /**
@@ -84,12 +80,13 @@
     {
         var hex = element.toString(16);
 
-        return (hex.length == 1 ? "0" + hex : hex);
+        return (hex.length == 1 ? "0" + hex : hex); // taken help from http://stackoverflow.com/questions/13070054/convert-rgb-strings-to-hex-in-javascript
     }
     function rgbToHex(r, g, b)
     {
-        return "#" + ConvertIntoHexColor(r) + ConvertIntoHexColor(g) + ConvertIntoHexColor(b);
+        return ("#" + ConvertIntoHexColor(r) + ConvertIntoHexColor(g) + ConvertIntoHexColor(b)).replace(/\s/g, '');
     }
+
 </script>
 
 </body>
