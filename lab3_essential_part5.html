@@ -1,18 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>JavsScript Functions with Arguments</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
+<div id="container">
+    <h1> Color Saver</h1>
+</div>
+<div id="button-blocks">
 
-<button onclick="changeToRandomColor()">Random color</button>
-<button id="colorSaver" onclick="saveToTable(this)">Save it to your list</button>
-<p id="randomColor">Welcome To my web page !! This is called color-picker. This page has two different buttons which has two different functionality.You can see that every time I press the button above, the color of the text changes. I can save the color of my choice and it's corresponding nex code in a table. I feel I am able to do that, that should be fun.</p>
+    <button onclick="changeToRandomColor()">Random color</button>
+    <button id="colorSaver" onclick="saveToTable(this)">Save it to your list</button>
+</div>
+<div id="color-display">
+    <p id="randomColor">Welcome To my web page !! This is called color-picker. This page has two different buttons which has two different functionality.You can see that every time I press the button above, the color of the text changes. I can save the color of my choice and it's corresponding nex code in a table. I feel I am able to do that, that should be fun.</p>
+</div>
+<div id="color-saver-section">
+    <table id="color-table">
+        <tr>
+            <th>Hex Color Code</th>
+            <th>Saved Colors</th>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+        </tr>
+    </table>
+</div>
+
 
 <script>
     document.getElementById("randomColor").addEventListener('click', changeToRandomColor);
+    document.getElementById("color-table").addEventListener('click', saveToTable);
+
     function changeToRandomColor()
     {
         document.getElementById("randomColor").style.backgroundColor = randomColor();
@@ -30,8 +55,40 @@
     }
     function saveToTable()
     {
+        var hex_color = parse_color_elements(randomColor());
+        alert("HEX COLORS " + hex_color);
+        var ColorListElement= document.getElementById("color-table");
+        var new_list_items = document.createElement("tr");
+        new_list_items.innerHTML = hex_color;
+        /*var color_column = document.getElementById("color-table").getElementsByTagName("td").style.backgroundColor="hex_color";
+        new_list_items.innerHTML = hex_color + color_column;*/
+        ColorListElement.appendChild(new_list_items)
+    }
 
+    function parse_color_elements(rgb_color)
+    {
+        var parse_rgb_colors= rgb_color.split("(")[1].split(")")[0];
+        var red= parse_rgb_colors.split(",")[0];
+        alert(red);
+        var green = parse_rgb_colors.split(",")[1];
+        alert(green);
+        var blue = parse_rgb_colors.split(",")[2];
+        alert(blue);
+        return rgbToHex(red, green,blue);
 
+    }
+    /**
+     * @return {string}
+     */
+    function ConvertIntoHexColor(element)
+    {
+        var hex = element.toString(16);
+
+        return (hex.length == 1 ? "0" + hex : hex);
+    }
+    function rgbToHex(r, g, b)
+    {
+        return "#" + ConvertIntoHexColor(r) + ConvertIntoHexColor(g) + ConvertIntoHexColor(b);
     }
 </script>
 
