@@ -44,13 +44,16 @@
 
 <p><b>Please email if you have any questions</b>. See the lab for the rest of <span class="copyme">your</span> lab questions.</p>
 <script>
+
     window.addEventListener("load", start_all_function);
+
     function start_all_function()
     {
         Count_P();
         Change_Font_Size();
         Change_color_for_list_elements();
         Copy_sort_Concatenate();
+        change_6th_element();
     }
     function Count_P()
     {
@@ -93,20 +96,25 @@
         create_new_p_element.innerText = "I am the new Paragraph :-> " + Paragraph_to_be_inserted;
         place_to_be_inserted.appendChild(create_new_p_element);
     }
-    var sixth_list_element = document.getElementsByTagName("li")[5];
-    var newImg = document.createElement("img");
-    sixth_list_element.addEventListener("mouseover", mouse_Over);
-    sixth_list_element.addEventListener("mouseout", mouse_Out);
-    function mouse_Over()
-    {
-        newImg.src= "Images/javascript.png";
-        newImg.id= "6th_element_id";
-        sixth_list_element.appendChild(newImg)
-    }
-    function mouse_Out()
-    {
-    sixth_list_element.removeChild(document.getElementById("6th_element_id"));
 
+    function change_6th_element()
+    {
+        var sixth_list_element = document.getElementsByTagName("li")[5];
+        var newImg = document.createElement("img");
+        sixth_list_element.addEventListener("mouseover", mouse_Over);
+        sixth_list_element.addEventListener("mouseout", mouse_Out);
+        function mouse_Over() //inner function
+        {
+            newImg.src = "Images/javascript.png";
+            newImg.id = "6th_element_id";
+            sixth_list_element.appendChild(newImg)
+        }
+
+        function mouse_Out()  // another inner function
+        {
+            sixth_list_element.removeChild(document.getElementById("6th_element_id"));
+
+        }
     }
 
 </script>
