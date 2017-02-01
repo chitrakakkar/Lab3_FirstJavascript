@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3 Solutions</title>
+</head>
+<body>
+<h2>Daily-Planner </h2>
+<ul id = "Daily_Planner">
+
+</ul>
+<input type="text" id="list_input" onkeyup="demoMatchClick(this);"/>
+<button id = 'add_items' type = 'button'>Add your daily routine to your List</button>
+<script>
+
+    document.getElementById("add_items").addEventListener('click', add_items);
+    //document.getElementById("list_input").addEventListener()
+    function add_items()
+    {
+        var my_list_element = document.getElementById("Daily_Planner");
+        var new_list_items = document.createElement("li");
+        var items_to_be_added = document.getElementById("list_input").value;
+
+        if (validate_input(items_to_be_added))
+        {
+            new_list_items.innerHTML = items_to_be_added;
+            my_list_element.appendChild(new_list_items);
+        }
+        document.getElementById('list_input').value = "";
+    }
+
+    function validate_input(field)
+    {
+        var r = new RegExp("[-_, / '().0-9a-zA-Z \r]", "g");
+        if (field.match(r) == null)
+        {
+            alert("Invalid item !! Please check your input !");
+            return false;
+        }
+        else if (field.length == 0) return false;
+        else if (field.length > 50)
+        {
+            alert(" Input can't be more than 50 characters !");
+            document.getElementById("list_input").focus();
+            return false;
+
+        }
+        return true;
+    }
+    function demoMatchClick(inputtxt)
+    {
+        var letters = /^[A-Za-z]+$/;
+        var val = inputtxt.value.replace(/\s/g, '');
+        if (val.match(letters))
+        {
+            return true;
+
+        }
+        else
+        {
+            alert("Invalid input");
+            inputtxt.innerText= "";
+            document.getElementById("list_input").focus();
+
+
+
+        }
+    }
+
+</script>
+</body>
+</html>
+
