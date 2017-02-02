@@ -46,10 +46,12 @@
         }
         return true;
     }
-    function demoMatchClick(inputtxt) // taken from stack-over-flow
+    function demoMatchClick(inputtxt)
     {
-        var letters = /^[A-Za-z]+$/;
-        var val = inputtxt.value.replace(/\s/g, '');
+            //^[a-zA-Z] means any a-z or A-Z at the start of a line
+            //[^a-zA-Z] means any character that IS NOT a-z OR A-Z
+        var letters = /^[A-Za-z]+$/; // taken from stack-over-flow or from somewhere on web
+        var val = inputtxt.value.replace(/\s/g, '');  // taken from stack-over-flow or from somewhere on web
         if (val.match(letters))
         {
             inputtxt.innerText= "";
