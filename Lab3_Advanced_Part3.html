@@ -30,13 +30,13 @@
     function validate_input(field)
     {
         //var pattern = /^[& '"<>]$/;
-        var r = new RegExp("[-_, / '().0-9a-zA-Z \r]", "g");
-        if (field.match(r) == null)
+        //var r = new RegExp("[-_, / '().0-9a-zA-Z \r]", "g"); // taken from stack-overflow
+        var r = /^[A-Za-z]+$/; // taken from stack-over-flow
+        if (field.match(r) == null) // no matches
         {
             alert("Invalid item !! Please check your input !");
             return false;
         }
-        else if (field.length == 0) return false;
         else if (field.length > 50)
         {
             alert(" Input can't be more than 50 characters !");
@@ -46,19 +46,21 @@
         }
         return true;
     }
-    function demoMatchClick(inputtxt)
+    function demoMatchClick(inputtxt) // taken from stack-over-flow
     {
         var letters = /^[A-Za-z]+$/;
         var val = inputtxt.value.replace(/\s/g, '');
         if (val.match(letters))
         {
+            inputtxt.innerText= "";
+            document.getElementById("list_input").focus();
             return true;
+
         }
         else
         {
             alert("Invalid input");
-            inputtxt.innerText= "";
-            document.getElementById("list_input").focus();
+            return false;
         }
     }
 </script>
