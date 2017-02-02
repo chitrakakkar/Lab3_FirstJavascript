@@ -37,11 +37,14 @@
 <script>
     document.getElementById("randomColor").addEventListener('click', changeToRandomColor);
     document.getElementById("color-table").addEventListener('click', saveToTable);
-
+    var currentColor;
     function changeToRandomColor()
     {
-        document.getElementById("randomColor").style.backgroundColor = randomColor();
+        //document.getElementById("randomColor").style.backgroundColor = randomColor();
+        currentColor = parse_color_elements(randomColor());
+        document.getElementById("randomColor").style.backgroundColor = currentColor;
     }
+
     function randomColor()
     {
         var r = Math.floor(Math.random() * 255);   //Pick a random number between 0 and 1
@@ -53,16 +56,23 @@
         console.log(colorString);
         return colorString
     }
-    var hex_color = parse_color_elements(randomColor());
+    //var hex_color = parse_color_elements(randomColor());
     function saveToTable()
     {
-        alert("HEX COLORS " + hex_color);
+        alert("HEX COLORS " + currentColor);
         var ColorListElement= document.getElementById("color-table");
-        var new_list_items = document.createElement("tr");
-        new_list_items.innerHTML = hex_color;
+        var new_table_row = document.createElement("tr");
+        var color_name_td = document.createElement("td");
+        color_name_td.innerHTML = currentColor;
+        var color_color_td = document.createElement("td");
+        color_color_td.style.backgroundColor = currentColor;
+        new_table_row.appendChild(color_name_td);
+        new_table_row.appendChild(color_color_td);
+        ColorListElement.appendChild(new_table_row);
+
         /*var color_column = document.getElementById("color-table").getElementsByTagName("td").style.backgroundColor="hex_color";
         new_list_items.innerHTML = hex_color + color_column;*/
-        ColorListElement.appendChild(new_list_items)
+        //ColorListElement.appendChild(new_list_items)
     }
     function parse_color_elements(rgb_color)
     {

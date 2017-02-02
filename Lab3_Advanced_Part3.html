@@ -7,12 +7,10 @@
 <body>
 <h2>Daily-Planner </h2>
 <ul id = "Daily_Planner">
-
 </ul>
 <input type="text" id="list_input" onkeyup="demoMatchClick(this);"/>
 <button id = 'add_items' type = 'button'>Add your daily routine to your List</button>
 <script>
-
     document.getElementById("add_items").addEventListener('click', add_items);
     //document.getElementById("list_input").addEventListener()
     function add_items()
@@ -31,6 +29,7 @@
 
     function validate_input(field)
     {
+        //var pattern = /^[& '"<>]$/;
         var r = new RegExp("[-_, / '().0-9a-zA-Z \r]", "g");
         if (field.match(r) == null)
         {
@@ -54,19 +53,14 @@
         if (val.match(letters))
         {
             return true;
-
         }
         else
         {
             alert("Invalid input");
             inputtxt.innerText= "";
             document.getElementById("list_input").focus();
-
-
-
         }
     }
-
 </script>
 </body>
 </html>
